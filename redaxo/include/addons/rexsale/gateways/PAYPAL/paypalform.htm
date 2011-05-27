@@ -1,0 +1,62 @@
+﻿<html>
+<head>
+
+<style type="text/css">
+	{literal}
+	*
+	{	font-family:"Trebuchet MS",sans-serif;
+		text-align:center;
+	}
+	#container
+	{	border:1px solid #CCCCCC;
+		margin:50px auto;
+		padding:20px 20px;
+		width:400px;
+	}
+	a
+	{	color:#666666;
+		font-size:11px;
+	}
+	{/literal}
+</style>
+
+</head>
+
+<body>
+
+	<div id="container">	
+		<form method="post" action="https://www.paypal.com/cgi-bin/webscr" id="paypal">
+		<input type="hidden" value="_xclick" name="cmd"/>
+		<input type="hidden" value="{$config.Gateway.PaymentAddress}" name="business"/>
+		<input type="hidden" value="{$shop.General.ShopName}: ({$order.user.fBILL_FIRST_NAME} {$order.user.fBILL_LAST_NAME} - {$smarty.now|date_format})" name="item_name"/>
+		<input type="hidden" value="{$basketurl}&returnstring={$return}&action=updateAmounts" name="return"/>
+		<input type="hidden" value="{$basketurl}" name="cancel_return"/>
+
+		<input type="hidden" value="EUR" name="currency_code"/>
+		<input type="hidden" name="no_shipping" value="1">
+		<input type="hidden" name="no_note" value="1">
+		<input type="hidden" name="lc" value="DE">
+		<input type="hidden" value="{$order.totalwithoutpostage}" name="amount"/>
+		<input type="hidden" name="shipping" value="{$order.postage}">
+		{if $order.postage eq "0.00"}<input type="hidden" name="handling" value="0.00">{/if}
+		
+		<input border="0" type="image" alt="Make payments with PayPal" name="submit" src="https://www.paypalobjects.com/WEBSCR-495-20071113-1/en_US/i/header/header_logginginAction.gif"/>
+		
+		</form>
+		
+		<script type="text/javascript">
+			{literal}
+			function gopherIt()
+			{	document.getElementById('paypal').submit();
+			}
+			
+			window.onload=function()
+			{	setTimeout("gopherIt()",4000);
+			}
+
+			{/literal}
+		</script>
+	</div>
+	
+</body>
+</html>

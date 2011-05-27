@@ -1,0 +1,27 @@
+<div class="minilogin">
+<h4>{$lang.account}</h4>
+{if $authed eq 0}
+<form action="{$config.Security.BaseSSL}/{$url}account/index.html" method="post">
+	<fieldset>
+			<p><label for="loginUser-mini">{$lang.loginUser}</label><input type="text" class="text" name="login[user]" id="loginUser-mini" value="{$smarty.post.login.user}" /></p>
+			
+			<p><label for="loginPassword-mini">{$lang.loginPassword}</label><input type="password" class="text" name="login[password]" id="loginPassword-mini" value="{$smarty.post.login.password}" /></p>
+			
+			<input type="hidden" class="hidden" value="login" name="action" />
+			<input type="hidden" class="hidden" value="{$lastpage}" name="lastpage" />
+			<input type="hidden" class="hidden" value="{$session}" name="basket" />
+			<input type="hidden" class="hidden" value="{$smarty.request.settings}" name="settings" />
+			<input type="hidden" class="hidden" value="login" name="action" />
+			<p><input type="submit" class="submit" value="{$lang.login}" /></p>
+			
+			<p><a href="{$config.Security.BaseNoSSL}/{$url}register/index.html&amp;basket={$session}">{$lang.register}</a></p>
+			<p><a href="{$config.Security.BaseNoSSL}/{$url}password/index.html&amp;basket={$session}">{$lang.forgotpassword}</a></p>
+	</fieldset>
+</form>
+{else}
+	<p>{$lang.goodToSeeYou} {$userdata[0].fBILL_FIRST_NAME} {$userdata[0].fBILL_LAST_NAME}</p>
+	
+	<p><a href="{$url}account/index.html">{$lang.editAccount}</a></p>
+	<p><a href="{$url}logout/index.html">{$lang.logout}</a></p>
+{/if}
+</div>

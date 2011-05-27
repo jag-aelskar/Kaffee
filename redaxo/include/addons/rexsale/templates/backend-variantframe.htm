@@ -1,0 +1,232 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="de">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="de" />
+  <link rel="stylesheet" type="text/css" href="media/css_backend.css" media="screen, projection, print" />
+  <style type="text/css">
+  	{literal}
+  	* {padding:0;}
+  	body{margin:0;padding:0;}
+  	select{border:none;text-align:center;font-size:12px;}
+  	option{text-align:center;font-size:12px;}
+  	table.rex{width:100%;border-collapse:collapse;float:left;margin-right:10px;}
+	input.valueprice {width:50px;}
+  	table.rex th{text-align:center !important;padding:3px 0px;}
+  	table td{text-align:left;border:1px solid #CCCCCC;padding:0;}
+  	.selected{font-weight:bold;}
+  	.optionhead{font-weight:bold;background-color:#999999;color:#000000;padding:2px;}
+  	table table th, table table td {border:none !important;font-size:11px;}
+  	th
+  	{	font-size:11px;
+  	}
+  	{/literal}
+  </style>
+<script type="text/javascript" src="index.php?page=rexsale&load=advajax.js"></script>
+<script type="text/javascript" src="index.php?page=rexsale&load=behaviour.js"></script>
+<script type="text/javascript" src="index.php?page=rexsale&load=init.js"></script>  
+
+<script type="text/javascript">
+	
+	taxamount = "{$tax}";
+	
+	nettoString="{$lang.pePriceNetto}";
+	
+	{literal}
+	function nokommas(x)
+	{	str = "";
+		for (i=0;i<x.length;i++)
+		{	str += (x.charAt(i)==',')?'.':x.charAt(i);
+		}
+		x = str;
+		return x;
+	}
+
+	
+	function recalcPrice(brutto,obj)
+	{	if (obj)
+		{	
+			id=obj.id;
+			id=id.replace(/bruttoPrice/i, "");
+			
+			netto=document.getElementById('nettoPrice'+id);
+			nettoTag=document.getElementById('nettoPriceTag'+id);
+			tax=document.getElementById('tax'.id);
+			
+		
+			amt=(parseFloat(taxamount)+1)*100;
+			//alert(amt);
+			
+			
+			
+			if (brutto=="")
+			{	// Calculate from netto value
+				brutto=netto.value*(amt/100);
+				brutto=Math.round(brutto*100)/100;
+				document.getElementById('bruttoPrice'+id).value=brutto;				
+				if (netto.value==0)
+				{	netto.value=0;
+				}
+				else
+				{	recalcPrice(brutto,obj);
+				}		
+			}
+			else
+			{	// Calculate from brutto value
+				brutto=brutto.toString().replace(/,/, '.');
+				
+				nettotal=(parseFloat(brutto)/parseFloat(amt))*100;
+				netto.value=Math.round(parseFloat(nettotal)*1000)/1000;
+				
+				//alert(netto.value);
+				
+				if (isNaN(nettotal))
+				{	nettotal=0;
+				}
+				nettoTag.innerHTML="("+nettoString+": "+Math.round(nettotal*100)/100+" EUR"+")";
+			}
+			
+		}
+		
+
+	}
+	window.onload=function()
+	{	if (document.getElementById('valueTable'))
+		{	fields=document.getElementById('valueTable').getElementsByTagName('INPUT');
+		
+			for(i=0;i<fields.length;i++)
+			{	if (fields[i].className=="brutto")
+				{	
+					recalcPrice("",fields[i]);
+				}
+			}
+			
+		}
+	}
+	{/literal}
+</script>
+
+</head>
+<body>
+	<form id="variantframe" action="index.php?page=rexsale&iframe=variantframe&clang={$smarty.get.clang}&product={$smarty.get.product}&editOption={$smarty.get.editOption}&editValue={$smarty.get.editValue}" method="post">
+	<table class="rex-table" style="width:240px;" cellpadding="0">
+		<tbody>
+		<tr><th>Optionen</th>
+		</tr>
+
+		<tr><!-- add option -->
+			<td>
+				<select id="addOption{$ok}" name="addOption">
+					{foreach from=$options key=ok item=ov}
+						<option value="{$ok}">{$ov}</option>
+					{/foreach}
+				</select>
+				<input type="image" name="action[addOption]" src="media/file_add.gif" />
+			</td>
+		</tr>
+		
+		<!-- show activated options -->
+		{foreach from=$prodOptions key=k item=v}
+		<tr>
+			<td>
+				<table>
+				<tr>
+					<td width="120">
+						<a{if $smarty.get.editOption eq $v} class="selected"{/if} href="index.php?page=rexsale&iframe=variantframe&clang={$smarty.get.clang}&product={$smarty.get.product}&editOption={$v}">{$options[$v]}</a>					
+					</td>
+					<td>
+						<input type="image" src="media/file_up.gif" name="action[moveOptionUp]" value="{$k}" />
+						<input type="image" src="media/file_down.gif" name="action[moveOptionDown]" value="{$k}" />
+						<input type="image" src="media/file_del.gif"  name="action[delOption]" value="{$v}" />
+					</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		{/foreach}
+	</table>
+	
+	{if $smarty.get.editOption ne ""}
+	<table style="width:240px;" class="rex-table" cellpadding="0" id="valueTable">
+		<tr><th colspan="3">&quot;{$options[$smarty.get.editOption]}&quot; Werte</th>
+		</tr>
+
+		<tr><!-- add value -->
+			<td>
+				<select id="addValue{$ok}" name="addValue" style="width:60px;">
+					{foreach from=$values[$smarty.get.editOption] key=ok item=ov}
+						<option value="{$ok}">{$ov}</option>
+					{/foreach}
+				</select>
+				<input type="image" name="action[addValue]" src="media/file_add.gif" />
+			</td>
+			<td>Preis- abweichung brutto</td>			
+			<td width="60">&nbsp;</td>
+			
+		</tr>
+		
+		<!-- show activated values -->
+		{foreach from=$prodValues[$smarty.get.editOption] key=k item=v}
+		<tr>
+				<td width="60">
+				<a{if $smarty.get.editValue eq $v} class="selected"{/if} href="index.php?page=rexsale&iframe=variantframe&clang={$smarty.get.clang}&product={$smarty.get.product}&editOption={$smarty.get.editOption}&editValue={$v}">{$values[$smarty.get.editOption][$v]}</a>
+				</td>
+				<td>
+				
+					<input id="bruttoPrice{$v}" class="brutto" style="width:60px;" onchange="recalcPrice(this.value,this)" type="text" class="text"  />
+					<input id="nettoPrice{$v}" style="display:none;" class="valueprice" type="text" name="price[{$v}]" value="{if $prodPrices[$v] gt 0}+{/if}{$prodPrices[$v]}" /> 
+					<br /><span id="nettoPriceTag{$v}">&nbsp;</span>
+				
+				</td>
+				<td>
+				<input type="image" src="media/file_up.gif" name="action[moveValueUp]" value="{$k}" />
+				<input type="image" src="media/file_down.gif" name="action[moveValueDown]" value="{$k}" />
+				<input type="image" src="media/file_del.gif"  name="action[delValue]" value="{$v}" />
+				</td>					
+		
+		</tr>
+		{/foreach}
+	
+		{if $prodValues[$smarty.get.editOption] ne ""}
+		<tr>
+			<td colspan="3">
+				<input type="submit" value="Preise speichern" name="action[savePrices]" />		
+			</td>
+		</tr>
+		{/if}
+	</table>	
+	{/if}
+	
+	{if $prodAbh ne ""}
+	<table class="" style="width:230px;" cellpadding="0">
+		<tr><th>&quot;{$values[$smarty.get.editOption][$smarty.get.editValue]}&quot; abhängig von:</th>
+		</tr>
+		
+		<tr>
+			<td>Mit Ctrl./Apfel Taste mehrere auswählen.</td>
+		</tr>
+		<tr>
+			<td>
+				<select style="width:100%" size="15" multiple="multiple" name="abhaengigkeiten[]">
+					{foreach from=$prodAbh key=k item=v}
+						<option class="optionhead" value="-1">{$options[$v.id]}</option>
+						
+						{foreach from=$v.array key=vk item=vv}
+						<option {if $prodDeps[$v.id][$vv] eq 1}selected="selected" {/if}value="{$v.id}-{$vv}">{$values[$v.id][$vv]}</option>
+						{/foreach}
+						
+					{/foreach}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td><input type="submit" value="Abhängigkeiten speichern" name="action[saveDependencies]" /></td>
+		</tr>
+		</tbody>
+	</table>
+	{/if}
+	
+	
+	</form>
+</body>
+</html>

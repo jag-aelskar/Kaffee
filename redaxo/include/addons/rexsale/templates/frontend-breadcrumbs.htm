@@ -1,0 +1,14 @@
+{if $parents ne ""}
+{section loop=$parents name=bread}
+<a href="{$url}{$parents[bread][0]}">{$parents[bread][1]}</a>
+
+	{if $smarty.section.bread.last eq ""}
+		<img src="files/_img/bread.gif" alt="" />	
+	{/if}
+
+{/section}
+{else}
+{if $pagename ne ""}
+	{$pagename}
+{/if}
+{/if}

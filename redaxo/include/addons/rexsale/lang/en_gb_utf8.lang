@@ -1,0 +1,298 @@
+# addon:rexshop en_en
+
+language = English
+products = Products
+variants = Product variants
+children = Child categories
+category = Category
+users = User Admin
+
+
+proddesc=Product Description
+
+
+productDetails=Product Details
+pleaseSendMoney=Please transfer the total above to the following account:
+pleaseSendMoney2=Please transfer the total above to the following account:
+pleaseSendBankInfo=Please send us your bank connection details per email:
+
+clickForBig=Click to see a larger image.
+
+
+# Payments
+bankTransfer=Bank Transfer
+COD=Cash-on-delivery
+
+
+# General
+image=Image
+price=Price
+save=Save
+general=General
+
+agreeToTOCsA=Yes, I have read the
+agreeToTOCsB=Terms and Conditions
+agreeToTOCsC=and accept them.
+noTOC=Please read and accept the TOCs.
+
+
+# navigation
+home = Homepage
+config = Configuration
+categories = Categories &amp; Products
+customers = Customers
+orders = Orders
+categorySelector = Select category
+
+showbasket=Show basket
+
+loggedInAs=You are logged in as
+
+# Category Selector
+category=Category
+priority=Prio
+editieren=Edit category
+statusfunction=Status/Functions
+home=RexSale
+directory=Folder
+languages=Languages
+edit=Edit category
+del=Delete category
+add=Insert category
+editdel=Edit or delete category
+editProducts=Edit products for
+
+
+# Product Selector
+product=Product
+editProduct=Edit product
+editdelProduct=Edit or Delete product
+
+
+# Error messages
+errorCatNotEmpty=This category cannot be deleted because it still has products or under-categories.
+
+
+# Product Editor
+peAdd=Insert Product
+peDel=Delete Product
+peStandard=General
+peName=Name
+peManufacturer=Manufacturer
+peMake=Brand
+pePrice=Price (EURs)
+peTax=Tax Class
+peEAN=EAN Number
+peUPC=UPC Number
+peISBN=ISBN Number
+peCategories=Categories
+peImages=Images
+peDescs=Descriptions
+peVariants=Variants
+peProductSaved=Your changes were saved.
+
+# Product Variants
+vaOptions=Options
+vaValues=Values
+
+vaNewOptionName=Type a new name:
+vaNewValueName=Type a new name:
+
+# Product Variant Frame
+vfOption=Option
+vfValue=Value
+vfPlusMinus=+/-
+vfPrice=Price
+vfControls=
+vfMove=
+vfEdit=Edit
+vfSave=Save
+
+
+# Frontend
+quicksearch=Search
+addToBasket=Add to Basket
+amount=Amount
+noProductsHere=This category is empty. Please select another category.
+youAreHere=You are here
+basket=Basket
+total=Total
+recalculate=Recalculate
+tothetill=Order
+choosePaymentMethod=Please choose a payment method:
+basketIsEmpty=Your basket contains no products at the moment.
+continueShopping=Continue shopping
+
+sendTo=Send to:
+paymentMethods=Payment:
+pleaseSelect=Please select:
+internationalPostagePerMail=Notice: We will send you postage costs for orders outside of Germany via Mail.
+calculatedAfter=(will be calculated after the completion<br/>Order)
+postage=Postage
+plusPostage=<br />excluding postage.
+
+taxInclusivePlusPackaging=The prices are listed including sales tax and excluding postage costs.
+includedTax=included Sales Tax
+
+
+paymentMethod=Payment will be completed via: 
+thanks=Thank you for your order!
+youWillGetMail=You will recieve a confirmation order from us shortly.
+
+ordernumber=Order Nr.
+
+register=Register
+registerSuccess=You are now registered!
+
+regEmail=E-Mail
+regPhone=Phone
+regPassword1=Password
+regPassword2=Repeat Password
+
+regCouldntSignup=The following problems occured:
+regPasswordsDontMatch=Please repeat your password.
+regIncorrectEmail=Your E-Mail Address is not correct.
+regPasswordsEmpty=Please type a password.
+regCheckRequiredFields=Please check all required fields.
+regUserAlreadyExists=You are already registered. Please log yourself in.
+regSignupSuccessful=Thank you! You are now registered.
+
+regBillAddress=Billing Address
+regBillFirstName=First Name
+regBillLastName=Last Name
+regBillCompany=Company
+regBillStreet=Street
+regBillTown=Town
+regBillState=State/County
+regBillPostcode=Postcode
+regBillCountry=Country
+
+regDelNotice=(Only fill in these fields if they are different from the billing address)
+
+regDelAddress=Delivery Address
+regDelFirstName=First Name
+regDelLastName=Last Name
+regDelCompany=Company
+regDelStreet=Street
+regDelTown=Town
+regDelState=State/County
+regDelPostcode=Postcode
+regDelCountry=Country
+regRequired=* Required Fields
+
+login=Login
+loginCustomer=I'm already a customer:
+loginNoCustomer=I would like to register:
+loginNoCustomerText=Signup for a free personal account here.
+loginUser=E-Mail
+loginPassword=Password
+loginUserDoesNotExist=This E-Mail Address is not registered.
+loginIncorrectUserOrPassword=Incorrect username or password.
+
+logout=Logout
+
+account=My Account
+accountUpdate=Save
+accountChangeInfo=Change contact information
+
+editAccount=Edit my account
+
+# Emails
+order=Order
+date=Date
+
+
+# Bank
+bankData=Account Information
+bankAccountHolder=Account Holder
+bankAccountBank=Bank
+bankAccountNumber=Account Number
+bankAccountSortCode=Sort Code
+
+
+# Paging
+nextProd = next Product
+lastProd = last Product
+overviewLink = Overview
+
+
+metaDataSaved = Metadata was saved
+catdesc= Category Description
+metainfo=Metadata
+
+# Ajax Variants
+calcPrice = Total Price
+
+# Backend Product
+specialoffer = Special Offer
+
+
+# 17.10.2007
+pePriceGross = Price (EUR) Brutto
+pePriceGrossNetto = Price (EUR) Netto
+pePriceNetto = Netto
+
+# 22.10.2007
+baseprice = Base Price
+
+# 22.10.2007
+baseprice = Grundpreis
+
+# 19.11.2007
+metadata = Metadaten
+metatitle = TITLE
+metakeywords = KEYWORDS
+metadescription = DESCRIPTION
+
+# 27.11.2007
+nextbutton = Continue &gt;&gt;
+reedit = Edit Basket
+confirmorder = Confirm Order
+sendorder = Send Order
+editdetails = Edit
+
+# 07.01.2008
+order_customer = Customer
+order_id = ID
+order_created = Order Date
+order_modified = Modified Date
+order_status = Status
+order_order = Order
+order_details = Order
+order_actions = &nbsp;
+OPEN = Open
+PROCESS = Processing
+SENT = Sent
+CANCELLED = Cancelled
+FRAUDULENT = Fraudulent
+
+# 09.01.2008
+accountOrders=My Orders
+open = Open
+overview = Overview
+
+# 28.04.2008
+reallyDelete = Really Delete?
+tax = Tax
+taxes = Taxes
+taxlabel = Label
+taxvalue = Value (%)
+
+
+# 30.04.2008
+forgotpassword = Forgot Password
+sendMeThePassword = Kennwort anfordern
+YourNewPasswordIs = Your new password is
+passwordWasReset = Your password was reset
+pleaseCheckEmail = We have sent you a confirmation mail
+emailDoesntExist = This email address isn't registered with us
+
+
+
+# 29.09.2008
+noResults = No Results
+
+prodDetail = Details
+
+
+at = @

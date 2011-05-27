@@ -1,0 +1,78 @@
+<script type="text/javascript">
+{literal}
+function checkFieldsNow(x)
+{	link=document.getElementById('LINK_'+x);
+	linkname=document.getElementById('LINK_'+x+'_NAME');
+	tex=document.getElementById('TEXEDITOR_'+x);
+	
+	if (link.value!="")
+	{	tex.value=tex.value+'"'+linkname.value+'":redaxo://'+link.value;
+		link.value="";
+	}
+	
+	media=document.getElementById('REX_MEDIA_'+x);
+	if (media.value!="")
+	{	tex.value=tex.value+'!files/'+media.value+'!';
+		media.value="";
+	}
+	setTimeout("checkFieldsNow('"+x+"')",500);
+}
+{/literal}
+</script>
+
+<form name="REX_FORM" action="?page=rexsale&subpage=inventory" method="post">
+
+
+<table cellspacing="1" cellpadding="4" border="0" class="rex-table rex-table-mrgn">
+	<tr>
+		<th style="width:26px;text-align:center;"><img src="media/document.gif" /></th>
+		<th>{$lang.metainfo}</th>
+	</tr>
+	
+	
+	<tr>
+		<td>
+		</td>
+		<td colspan="4">
+			{if $smarty.get.metaUpdated ne ""}
+			<p><strong>{$lang.metaDataSaved}</strong></p>
+			{/if}
+			
+			<p>{$lang.metatitle}<br />
+			<input type="text" value="{$catinfo.metatitle}" style="width:300px;" name="metatitle" /></p>
+	
+			<p>{$lang.metakeywords}<br />
+			<input type="text" value="{$catinfo.metakeywords}" style="width:300px;" name="metakeywords" /></p>
+	
+		
+			{$lang.catdesc}<br />
+			
+			{php}
+						
+			textext('metatext',$this->_tpl_vars['catinfo']['metatext'],'width:350px;height:80px;');
+			
+			{/php}
+			<br />
+			{$lang.image}<br />
+			
+			
+			
+			<div class="rex-wdgt">
+			  <div class="rex-wdgt-mda">
+				<p>
+				  <input type="text" size="30" name="REX_MEDIA_1" value="{$catinfo.metabild}" id="REX_MEDIA_1" readonly="readonly" />
+				  <a href="#" onclick="openREXMedia(1,'');return false;" tabindex="24"><img src="media/file_open.gif" width="16" height="16" title="Open Mediapool" alt="Open Mediapool" /></a>
+				  <a href="#" onclick="addREXMedia(1);return false;" tabindex="25"><img src="media/file_add.gif" width="16" height="16" title="Add New Media" alt="Add New Media" /></a>
+				  <a href="#" onclick="deleteREXMedia(1);return false;" tabindex="26"><img src="media/file_del.gif" width="16" height="16" title="Remove Selection" alt="Remove Selection" /></a>
+				</p>
+			  </div>
+			</div>
+				
+			<input type="hidden" name="id" value="{$parent}" />
+			<input type="hidden" name="clang" value="{$clang}" />
+			
+			<input type="submit" class="button" name="catmeta" value="{$lang.save}" />
+		</td>
+	</tr>
+</table>
+</form>

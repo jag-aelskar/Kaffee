@@ -1,0 +1,205 @@
+<div id="page-basket">
+<h2>{$lang.basket}</h2>
+<form action="{$base}/{$PHPSELF}" method="post" name="basket">
+	
+	{if $settings.confirmed eq 1}<h3>{$lang.confirmorder}</h3>{/if}
+	
+	{if $settings.confirmed eq 1}
+	<div class="addresses">
+		<div class="address">
+		<h4>{$lang.regBillAddress}{if $delAddr eq ""}/{$lang.regDelAddress}{/if}</h4>
+		<p class="address">{$billAddr}</p>
+		<p><input type="submit" class="submit" value="{$lang.editdetails}" name="editDetails" /></p>
+		</div>
+		
+		{if $delAddr ne ""}
+		<div class="address">
+		<h4>{$lang.regDelAddress}</h4>
+		<p>{$delAddr}</p>
+		<p><input type="submit" class="submit" value="{$lang.editdetails}" name="editDetails" /></p>
+		</div>
+		{/if}
+	</div>
+	{/if}
+	
+	<table>
+
+		<tr>
+			<th>{$lang.product}</th>
+			<th class="amount">{$lang.amount}</th>
+			<th class="price">{$lang.total}</th>
+		</tr>
+	{section loop=$basket name=row}
+
+		<tr>
+			<td><strong>{$basket[row].name}</strong>{if $basket[row].variants ne ""}<br/>
+					{section loop=$basket[row].variants name="variant"}
+						{$basket[row].variants[variant]}<br/>
+						
+					{/section}
+				{/if}
+			</td>
+			
+			<td class="amount">
+				{if $settings.confirmed eq 1}
+				{$basket[row].amount} {$lang.at} {$basket[row].origprice|replace:".":$config.Currency.Separator}
+				{else}
+				<input type="text" class="text" name="amounts[{$basket[row].ident}]" value="{$basket[row].amount}"  /> {$lang.at} {$basket[row].origprice|replace:".":$config.Currency.Separator}
+				{/if}
+			</td>
+			<td class="price">{$basket[row].price|replace:".":$config.Currency.Separator}</td>
+		</tr>
+
+	{/section}
+	
+		{if $basket eq ""}
+			<tr>
+				<td colspan="3" class="message">{$lang.basketIsEmpty}</td>
+			</tr>
+		{else}
+		
+			{if $settings.scriptmessage!=""}
+			
+			{foreach from=$settings.scriptmessage key=key item=item}
+			<tr class="scriptmessage">
+				<td><strong>{$item[0]}</strong></td>
+				<td>{$item[1]}</td>
+				<td>{$item[2]}</td>
+			</tr>
+			{/foreach}
+			
+			{/if}
+		
+		
+		<tr>
+		
+			
+			{if $freepostage ne 1}
+				{if $basketpostage ne ""}
+					
+					<tr class="postagerow inforow">
+						<th class="head" colspan="2">
+							{$lang.postage}
+						</th>
+						<th class="price">
+						{if $shippingID ne 2}
+						
+						{if $settings.originalpostage ne ""}
+						{$basketpostage|replace:".":$config.Currency.Separator}
+						{else}
+							{$lang.plusPostage|replace:"<br />":""}
+						{/if}
+						
+						
+						{else}
+							{$lang.calculatedAfter}
+						{/if}
+
+						</th>
+					</tr>
+				{/if}
+			{/if}
+			<tr class="vatrow inforow">
+				<th class="head" colspan="2">{$lang.includedTax}</th>
+				<th class="price">{$baskettax|replace:".":$config.Currency.Separator}</th>
+			</tr>
+
+			<tr class="totalrow inforow">
+				<th class="head" colspan="2">{$lang.total}</th>
+				<th class="price">{$baskettotal|replace:".":$config.Currency.Separator} {if $shippingID eq 2}{$lang.plusPostage}{/if}</th>
+			</tr>
+			
+			{if $settings.confirmed eq 1}
+			<tr class="shippingrow inforow">
+				<td>
+				
+				<label for="shipping">{$lang.sendTo}</label>
+				<select id="shipping" name="shippingSet" onchange="document.forms.basket.submit();">
+					{foreach from=$shippingSets key=key item=item}
+						<option value="{$key}"{if $shippingID eq $key} selected="selected"{/if}>{$item}</option>
+					{/foreach}
+				</select>
+				
+				</td>
+				
+				<td colspan="2">
+				
+				<label for="payment">{$lang.paymentMethods}</label>
+				<select id="payment" name="paymentMethod" onchange="document.forms.basket.submit();">
+						<option value="0">{$lang.pleaseSelect}</option>
+					{foreach from=$paymentMethods key=key item=item}
+						<option value="{$key}"{if $paymentID eq $key} selected="selected"{/if}>{$item[1]}</option>
+					{/foreach}
+				</select>
+				
+			
+				</td>
+			</tr>
+			{/if}
+			
+			{/if}
+			
+			
+			
+			
+			{if $shippingID eq 2}
+			<tr>
+					<td colspan="3" class="note">{$lang.internationalPostagePerMail}</td>
+			</tr>
+			{/if}
+			
+								
+					
+			
+			{if $error ne ""}
+			<tr>
+				<td colspan="3" class="error">{$error}</td>
+			</tr>
+			{/if}
+			<tr>
+			<td colspan="3" class="last">			
+				
+				{if $basket ne ""}
+				
+				<script type="text/javascript">
+					{literal}tocs="{/literal}{$document}{literal}";
+					
+					function showtoc()
+					{	x=window.open('','tocs','height=500,width=650,scrollbars=yes');
+						x.document.write('<div style="font-family:\'Courier New\',monospace;font-size:11pt;">'+tocs+'</div>');
+						x.document.close();
+					}
+					{/literal}
+				</script>
+				
+				{if $settings.confirmed eq 1}
+				<p class="agb"><input type="checkbox" class="checkbox" name="TOC" {if $toc eq 1} checked="checked"{/if} />
+					{$lang.agreeToTOCsA}
+					<a href="javascript:;" onclick="showtoc();">{$lang.agreeToTOCsB}</a>
+					{$lang.agreeToTOCsC}
+				</p>
+				{/if}
+				
+				<input type="hidden" value="updateAmounts" name="action" />
+				<p><input type="submit" class="submit send" value="{if $settings.confirmed eq 1}{$lang.sendorder}{else}{$lang.nextbutton}{/if}" name="toTill" {if $settings.confirmed eq 1}{if $paymentID eq 0 or $paymentID eq ''} onclick="alert('{$lang.choosePaymentMethod}');return false;"{/if}{/if} /></p>
+				
+				{if $settings.confirmed eq 1}
+				<p><input type="submit" class="submit edit" value="{$lang.reedit}" name="editBasket" /></p>
+				{else}
+				<p><input type="submit" class="submit update" value="{$lang.recalculate}" name="updateAmounts" /></p>
+				{/if}
+				
+				{else}
+				<p><input type="hidden" value="continueShopping" name="action" /></p>
+				<p><input type="submit" class="submit update" value="{$lang.continueShopping}" name="updateAmounts" /></p>
+				{/if}
+				
+			</td>
+		</tr>
+		
+		
+	
+	</table>
+	
+</form>
+</div>

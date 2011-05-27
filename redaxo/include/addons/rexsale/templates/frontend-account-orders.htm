@@ -1,0 +1,52 @@
+<div id="page-account-update">
+	<h2>{$lang.accountOrders}</h2>
+	
+	
+	{if $smarty.get.order ne ""}
+		<p><a class="orders" href="{$url}account/orders/index.html">{$lang.overview}</a></p>
+	
+	
+		<h3>{$lang.order} : {$smarty.get.order}</h3>
+		
+		<div class="order">
+			<h4>{$lang.order_status}</h4>
+			<p>{$orders[$smarty.get.order].status_label}</p>
+		
+			<h4>{$lang.order_created}</h4>
+			<p>{$orders[$smarty.get.order].created}</p>
+
+			<h4>{$lang.order_modified}</h4>
+			<p>{$orders[$smarty.get.order].modified}</p>
+			
+			<div class="orderdetails">
+			<h4>{$lang.order_details}</h4>
+			<pre>{$orders[$smarty.get.order].order}</pre>
+			</div>
+		</div>
+	
+	{else}
+		
+		{if $orders ne ""}
+			<table class="orders">
+				<tr>
+					<th>{$lang.order_id}</th>
+					<th>{$lang.order_created}</th>
+					<th>{$lang.order_modified}</th>
+					<th>{$lang.order_status}</th>
+					<th>{$lang.order_actions}</th>
+				</tr>
+			{foreach from=$orders key=key item=item}
+				<tr class="order_{$item.status}">
+					<td>{$key}</td>
+					<td>{$item.created}</td>
+					<td>{$item.modified}</td>
+					<td>{$item.status_label}</td>
+					<td><a class="d" href="{$url}account/orders/index.html&amp;order={$key}">{$lang.open}</a></td>
+				</tr>
+			{/foreach}
+			</table>
+		{/if}
+	
+	{/if}
+	
+</div>

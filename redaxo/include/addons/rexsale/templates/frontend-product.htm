@@ -1,0 +1,80 @@
+<div id="bread">{include file="frontend-breadcrumbs.htm"}</div>
+
+<h2>{$info.name}</h2>
+
+
+{if $info.images[1] eq ""}
+	<div id="prodimage">
+		<img src="files/kein-bild.jpg" alt="" />
+	</div>
+{/if}
+{if $info.images[1] ne ""}
+	<div id="prodimage">
+	<a href="#" onclick="return false;"><img title="{$lang.clickForBig}" onclick="showPopup(this,{$info.imagesizes[1][0]},{$info.imagesizes[1][1]},450,'{$base}/');" src="index.php?rex_resize=170w__{$info.images[1]}" alt="{$info.name}" /></a>
+
+		{if $info.images[2] ne ""}
+		<div id="prodthumbs">
+		{section name=image start=1 loop=7 step=1}
+		  {if $info.images[$smarty.section.image.index] ne ""}
+			<a href="#" onclick="return false;"><img title="{$lang.clickForBig}" onclick="switchPic({$info.imagesizes[$smarty.section.image.index][0]},{$info.imagesizes[$smarty.section.image.index][1]},'{$info.images[$smarty.section.image.index]}',170,450,'{$base}');" src="index.php?rex_resize=40h__{$info.images[$smarty.section.image.index]}" alt="{$info.name}" /></a>
+		  {/if}
+		{/section}
+		</div>
+		{/if}
+
+
+	</div>
+{/if}
+
+<div class="proddetails">
+{if $info.artnr ne ""}{$lang.peArticleNr} - {$info.artnr}{/if}
+
+
+{if $info.desc[1] ne ""}
+<div class="desc">
+<h3>{$lang.proddesc}</h3>
+{$info.deschtml[1]}
+</div>
+{/if}
+
+<p class="p-price">{if $priceChange eq 1}{$lang.baseprice}:{else}{$lang.price}:{/if} <span id="p-price">{$info.priceGrossFormatted|replace:".":","} *</span></p>
+
+<form action="{$base}{$PHPSELF}" method="post" id="basketform">
+
+{include file="frontend-variants.htm"}
+
+{if $priceChange eq 1}<p class="calcPrice">{$lang.calcPrice}: <span id="calcPrice">{if $calcPrice ne ""}{$calcPrice}{else}{$info.priceGrossFormatted}{/if} *</span></p>{/if}
+
+
+<p><label for="amount">{$lang.amount}</label>
+<input class="text" type="text" id="amount" name="amount" value="1" /></p>
+<p><input class="button" type="submit" value="{$lang.addToBasket}" /></p>
+<input class="hidden" type="hidden" name="product" value="{$info.id}" />
+<input class="hidden" type="hidden" name="category" value="{$category}" />
+<input class="hidden" type="hidden" name="action" value="addUpdateBasket" />
+</form>
+</div>
+
+
+{if count($related)>0}
+	<div class="related-products">
+	<h2 class="head">{$lang.similarProds}</h2>
+	<br>
+	<ul>
+	{foreach from=$related key=rKey item=rItem}	
+		<li><a href="{$url}{$rItem->getValue('url')}">{$rItem->getValue('name')}</a></li>
+	{/foreach}
+	</ul>
+	</div>
+{/if}
+
+
+{if $lastProdLink ne "" or $nextProdLink ne ""}
+	<p class="pager">
+		{if $lastProdLink ne ""}<a href="{$base}/{$lastProdLink}" class="lastProd">{$lang.lastProd}</a>{/if}
+		<a href="{$base}/{$overviewLink}" class="overviewLink">{$lang.overviewLink}</a>
+		{if $nextProdLink ne ""}<a href="{$base}/{$nextProdLink}" class="nextProd">{$lang.nextProd}</a>{/if}
+	</p>
+{/if}
+
+<p class="priceinfo">* {$lang.taxInclusivePlusPackaging}</p>

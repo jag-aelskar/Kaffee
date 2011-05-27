@@ -1,0 +1,11 @@
+
+{if $categorymap ne ""}
+	{foreach from=$categorymap key=key item=item}
+	<option value="{$item.metainfo.id}"{if $product.categories[$item.metainfo.id] ne ""} selected="selected"{/if}>{$tab}{$item.metainfo.name}</option>
+	{if $item.children ne ""}
+		{capture assign=tab2}{$tab}&nbsp;&nbsp;&nbsp;&nbsp;{/capture}	
+		{include file="backend-categorymap.htm" categorymap=$item.children tab=$tab2}
+	{/if}
+	
+	{/foreach}
+{/if}

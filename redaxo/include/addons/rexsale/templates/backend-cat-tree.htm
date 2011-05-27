@@ -1,0 +1,7 @@
+<p>
+<strong>{$lang.directory}</strong>: <a href="?page=rexsale&subpage=inventory&clang={$smarty.request.clang}">{$lang.home}</a>
+{foreach from=$crumbs key=key item=item}
+| <a href="index.php?page=rexsale&subpage=inventory&parent={$item[0]}&clang={$smarty.request.clang}">{$item[1]}</a>
+{/foreach}
+</p>
+<br />

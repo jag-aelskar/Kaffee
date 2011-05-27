@@ -1,0 +1,314 @@
+# addon:rexsale de_de
+
+language = Deutsch
+products = Produkte
+variants = Produktvarianten
+children = Unterkategorien
+category = Kategorie
+users = Benutzerverwaltung
+
+
+proddesc=Produktbeschreibung
+
+
+productDetails=Produktdetails
+pleaseSendMoney=Der Versand der Waren erfolgt erst nach Eingang Ihrer Zahlung. Bitte überweisen Sie den o. g. Gesamtbetrag auf dieses Konto:
+pleaseSendMoney2=Der Versand der Waren erfolgt erst nach Eingang Ihrer Zahlung. Bitte überweisen Sie nach Bekanntgabe der Versandkosten auf dieses Konto:
+pleaseSendBankInfo=Bitte teilen Sie uns dazu Ihre Bankverbindung per E-Mail mit.
+
+clickForBig=Klicken für Großansicht
+
+
+# Payments
+bankTransfer=Vorkasse
+COD=Nachnahme
+
+
+# General
+image=Bild
+price=Preis
+save=Speichern
+apply=Übernehmen
+general=Allgemein
+
+agreeToTOCsA=Ja, ich habe die
+agreeToTOCsB=Allgemeinen Geschäftsbedingungen 
+agreeToTOCsC=gelesen und akzeptiere sie.
+noTOC=Bitte lesen und akzeptieren Sie die AGB.
+
+
+# navigation
+home = Startseite
+config = Konfiguration
+categories = Kategorieübersicht
+customers = Kunden
+orders = Bestellungen
+categorySelector = Kategorieauswahl
+
+showbasket=Warenkorb anzeigen
+
+loggedInAs=Sie sind angemeldet als
+goodToSeeYou=Schön Sie wieder zu sehen
+
+# Category Selector
+category=Kategorie
+priority=Prio
+editieren=Kategorie editieren
+statusfunction=Status/Funktion
+home=RexSale
+directory=Pfad
+languages=Sprachen
+edit=Kategorie bearbeiten
+del=Kategorie löschen
+add=Kategorie hinzufügen
+editdel=Kategorie editieren/löschen
+editProducts=Produkte bearbeiten für
+
+
+# Product Selector
+product=Produkt
+editProduct=Produkt bearbeiten
+editdelProduct=Produkt editieren/löschen
+
+
+# Error messages
+errorCatNotEmpty=Kategorie hat noch Unterkategorien.
+
+
+# Product Editor
+peAdd=Produkt hinzufügen
+peDel=Produkt löschen
+peStandard=Allgemein
+peName=Name
+peManufacturer=Hersteller
+peMake=Marke
+pePrice=Preis (EUR)
+peTax=Steuersatz
+peEAN=EAN Nummer
+peArticleNr=Artikel Nr.
+peUPC=UPC Nummer
+peISBN=ISBN Nummer
+peCategories=Kategorien
+peImages=Bilder
+peDescs=Beschreibungen
+peVariants=Varianten
+peProductSaved=Produktdaten wurden gespeichert
+peRelated=Ähnliche Produkte
+peDownload = Downloadlink
+
+# Product Variants
+vaOptions=Optionen
+vaValues=Werte
+
+vaNewOptionName=Neuen Name eingeben:
+vaNewValueName=Neuen Name eingeben:
+
+# Product Variant Frame
+vfOption=Option
+vfValue=Wert
+vfPlusMinus=+/-
+vfPrice=Preis
+vfControls=
+vfMove=
+vfEdit=Bearbeiten
+vfSave=Speichern
+
+
+# Frontend
+quicksearch=Schnellsuche
+addToBasket=In Warenkorb
+amount=Anzahl
+noProductsHere=Diese Kategorie enthält zur Zeit keine Produkte.
+youAreHere=Sie sind hier
+basket=Warenkorb
+total=Gesamtbetrag
+recalculate=Neu berechnen
+tothetill=Bestellen
+choosePaymentMethod=Bitte wählen Sie eine Zahlungsart.
+basketIsEmpty=Warenkorb ist derzeit leer
+continueShopping=Weiter einkaufen
+
+sendTo=Versand nach:
+paymentMethods=Bezahlung:
+pleaseSelect=Bitte auswählen:
+internationalPostagePerMail=Hinweis: Versandkosten für Lieferung ins Ausland werden Ihnen per E-Mail mitgeteilt.
+calculatedAfter=(wird nach der<br/>Bestellung berechnet)
+postage=Versand
+plusPostage=<br />zzgl. Versandkosten.
+
+taxInclusivePlusPackaging=Die angegebenen Preise sind inklusive gesetzlicher MwSt. und zuz√ºglich Versandkosten.
+includedTax=enthaltene MwSt.
+
+
+paymentMethod=Zahlung erfolgt mit
+thanks=Vielen Dank für Ihre Bestellung!
+youWillGetMail=Sie erhalten in Kürze eine Bestätigungsmail von uns.
+
+ordernumber=Bestellung Nr.
+
+register=Registrieren
+registerSuccess=Anmeldung erfolgreich!
+
+regEmail=E-Mailadresse
+regPhone=Telefon
+regPassword1=Kennwort
+regPassword2=Kennwort wiederholen
+
+regCouldntSignup=Folgende Fehler sind aufgetreten:
+regPasswordsDontMatch=Bitte wiederholen Sie ihr Kennwort.
+regIncorrectEmail=Die E-Mailadresse ist nicht richtig!
+regPasswordsEmpty=Bitte geben Sie Ihr Kennwort ein.
+regCheckRequiredFields=Bitte überprüfen Sie alle Pflichtfelder.
+regUserAlreadyExists=Sie sind schon registriert! Bitte loggen Sie sich ein.
+regSignupSuccessful=Vielen Dank! Sie sind jetzt angemeldet!
+
+regBillAddress=Rechnungsadresse
+regBillFirstName=Vorname
+regBillLastName=Nachname
+regBillCompany=Firma
+regBillStreet=Straße
+regBillTown=Stadt
+regBillState=Bundesland
+regBillPostcode=PLZ
+regBillCountry=Land
+
+regDelNotice=(Folgende Felder bitte nur ausfüllen, falls die gewünschte Lieferadresse von der Rechnungsadresse abweicht.)
+
+regDelAddress=Lieferadresse
+regDelFirstName=Vorname
+regDelLastName=Nachname
+regDelCompany=Firma
+regDelStreet=Straße
+regDelTown=Stadt
+regDelState=Bundesland
+regDelPostcode=PLZ
+regDelCountry=Land
+regRequired=* Diese Angaben benötigen wir, um Ihre Bestellungen bearbeiten zu können.
+
+login=Anmelden
+loginCustomer=Ich bin bereits Kunde:
+loginNoCustomer=Ich möchte mich registrieren:
+loginNoCustomerText=Melden Sie kostenlos Ihr persönliches Kundenkonto an.
+loginUser=E-Mailadresse
+loginPassword=Kennwort
+loginUserDoesNotExist=Diese E-Mailadresse ist nicht bei uns registriert.
+loginIncorrectUserOrPassword=Falscher Benutzername oder Kennwort.
+
+logout=Abmelden
+
+account=Mein Konto
+accountUpdate=Speichern
+accountDownloads=Meine Downloads
+accountChangeInfo=Kontaktdaten ändern
+
+editAccount=Konto bearbeiten
+
+# Emails
+order=Bestellung
+date=Datum
+
+
+# Bank
+bankData=Bankverbindung
+bankAccountHolder=Kontoinhaber
+bankAccountBank=Bank
+bankAccountNumber=Kontonummer
+bankAccountSortCode=BLZ
+
+
+# Paging
+nextProd = zum nächsten Produkt
+lastProd = zum vorherigen Produkt
+overviewLink = Übersicht
+
+metaDataSaved = Metadaten wurden gespeichert.
+catdesc= Kategoriebeschreibung
+metainfo=Metadaten
+
+
+# Ajax Variants
+calcPrice = Gesamtpreis
+
+# Backend Product
+specialoffer = Sonderangebot
+
+
+# 17.10.2007
+pePriceGross = Preis (EUR) Brutto
+pePriceGrossNetto = Preis (EUR) Netto
+pePriceNetto = Netto
+
+# 22.10.2007
+baseprice = Grundpreis
+
+# 19.11.2007
+metadata = Metadaten
+metatitle = TITLE
+metakeywords = KEYWORDS
+metadescription = DESCRIPTION
+
+# 27.11.2007
+nextbutton = Weiter &gt;&gt;
+reedit = Warenkorb bearbeiten
+confirmorder = Bestellung best&auml;tigen
+sendorder = Bestellung abschlie&szlig;en
+editdetails = Bearbeiten
+
+# 07.01.2008
+order_customer = Kunde
+order_id = ID
+order_created = Bestellungsdatum
+order_modified = Änderungsdatum
+order_status = Status
+order_order = Bestellung
+order_details = Bestellung
+order_actions = &nbsp;
+OPEN = Offen
+PROCESS = In Bearbeitung
+SENT = Abgeschlossen
+CANCELLED = Abgelehnt
+FRAUDULENT = Betrügerisch
+
+# 09.01.2008
+accountOrders=Meine Bestellungen
+accountDownloads=Meine Downloads
+
+open = Einsehen
+overview = Zur Übersicht
+
+# 28.04.2008
+reallyDelete = Wirklich löschen?
+tax = Steuer
+taxes = Steuern
+taxlabel = Bezeichnung
+taxvalue = Steuer (%)
+
+
+# 30.04.2008
+forgotpassword = Kennwort vergessen
+sendMeThePassword = Kennwort anfordern
+YourNewPasswordIs = Ihr neues Kenwort lautet
+passwordWasReset = Ihr Kennwort wurde zurückgesetzt.
+pleaseCheckEmail = Sie bekommen in wenigen Minuten eine Bestätigungsmail von uns.
+emailDoesntExist = Diese E-Mailadresse ist nicht bei uns registriert!
+
+# 29.09.2008
+noResults = Keine Ergebnisse
+
+
+at = á
+
+
+#gateways
+gw_dd_mailsubject = Bestellung von 
+gw_dd_mailbody = Für die von Ihnen gewählte Zahlungsmethode Bankeinzug benötigen wir Ihre Daten.<br><br><br>Bitte drucken Sie dazu das im Anhang geschickte PDF-Formular aus und füllen Sie Ihre Bankdaten aus. Schicken Sie bitte das ausgefüllte Formular per Fax oder per Post an uns.<br><br>Vielen Dank!
+
+
+accountDownloadName = Datei
+accountDownloadRemain = verbleibende Downloads
+accountDownloadThis = Herunterladen
+accountEMailThis = per E-Mail senden
+accountDownloadsFileSent = Datei wurde erfolgreich versendet.
+
+
+similarProds = Ähnliche Produkte

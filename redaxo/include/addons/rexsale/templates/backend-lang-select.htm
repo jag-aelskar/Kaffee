@@ -1,0 +1,16 @@
+<div id="rex-clang">
+<ul>
+	<li>{$lang.languages} : </li>
+	{foreach from=$langs key=key item=item name=langs}
+		<li>
+			{if $clang eq $key}
+				{$item}
+			{else}
+				<a href="?page=rexsale&subpage={$smarty.get.subpage}&parent={$smarty.request.parent}&clang={$key}&mode={$smarty.get.mode}{if $smarty.request.editProd ne ""}&editProd={$smarty.request.editProd}{/if}">{$item}</a>
+			{/if}
+			
+			{if $smarty.foreach.langs.last eq ""}|{/if}
+		</li>
+	{/foreach}
+</ul>
+</div>

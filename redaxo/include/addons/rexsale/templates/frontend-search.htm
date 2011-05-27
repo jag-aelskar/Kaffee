@@ -1,0 +1,9 @@
+<h2>Suchergebnisse Shop</h2>
+
+<ul class="results">
+{foreach from=$results key=key item=item}
+	{if $item.url ne ""}
+	<li><a href="{$url}{$item.url}">{$item.name}</a></li>
+	{/if}
+{/foreach}
+</ul>

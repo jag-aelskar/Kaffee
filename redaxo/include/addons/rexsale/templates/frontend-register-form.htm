@@ -1,0 +1,112 @@
+{if $shopmode eq "u"}
+<form class="registerform" action="{$config.Security.BaseSSL}/{$url}account/update/index.html" method="post">
+{else}
+<form class="registerform" action="{$config.Security.BaseSSL}/{$url}register/index.html" method="post">
+{/if}
+		{if $errors ne ""}
+			<div class="error">
+				<p>{$lang.regCouldntSignup}</p>
+			<ul>
+			{foreach from=$errors key=key item=item}
+				<li>{$item}</li>
+			{/foreach}
+			</ul>
+			</div>
+		{/if}
+		
+		
+		<h3>{$lang.regUser}</h3>
+		<p class="req">{$lang.regRequired}</p>
+		<fieldset>
+			{if $mode eq "add"}
+			<p><label for="regEmail">{$lang.regEmail} *</label>
+			<input type="text" class="text" name="reg[regEmail]" id="regEmail" value="{$smarty.post.reg.regEmail}" /></p>
+			{else}
+			<p><label for="regEmail">{$lang.regEmail}</label>
+			<input type="text" id="regEmail" disabled="disabled" value="{$smarty.post.reg.regEmail}" /></p>
+			{/if}
+			<p><label for="regPhone">{$lang.regPhone} *</label>
+			<input type="text" class="text" name="reg[regPhone]" id="regPhone" value="{$smarty.post.reg.regPhone}" /></p>
+			{if $mode ne "update"}
+			<p><label for="regPassword1">{$lang.regPassword1} *</label>
+			<input type="password" class="text" name="reg[regPassword1]" id="regPassword1" value="" /></p>
+			
+			<p><label for="regPassword2">{$lang.regPassword2} *</label>
+			<input type="password" class="text" name="reg[regPassword2]" id="regPassword2" value="" /></p>
+			{/if}
+		</fieldset>
+		
+		<h3>{$lang.regBillAddress}</h3>
+		<fieldset>
+			<p><label for="regBillFirstName">{$lang.regBillFirstName} *</label>
+			<input type="text" class="text" name="reg[regBillFirstName]" id="regBillFirstName" value="{$smarty.post.reg.regBillFirstName}" /></p>
+			
+			<p><label for="regBillLastName">{$lang.regBillLastName} *</label>
+			<input type="text" class="text" name="reg[regBillLastName]" id="regBillLastName" value="{$smarty.post.reg.regBillLastName}" /></p>
+
+			<p><label for="regBillCompany">{$lang.regBillCompany}</label>
+			<input type="text" class="text" name="reg[regBillCompany]" id="regBillCompany" value="{$smarty.post.reg.regBillCompany}" /></p>
+
+			<p><label for="regBillStreet">{$lang.regBillStreet} *</label>
+			<input type="text" class="text" name="reg[regBillStreet]" id="regBillStreet" value="{$smarty.post.reg.regBillStreet}" /></p>
+			
+			<p><label for="regBillTown">{$lang.regBillTown} *</label>
+			<input type="text" class="text" name="reg[regBillTown]" id="regBillTown" value="{$smarty.post.reg.regBillTown}" /></p>
+			
+			<p><label for="regBillPostcode">{$lang.regBillPostcode} <span class="req">*</span></label>
+			<input type="text" class="text" name="reg[regBillPostcode]" id="regBillPostcode" value="{$smarty.post.reg.regBillPostcode}" /></p>
+			
+			<p><label for="regBillCountry">{$lang.regBillCountry} *</label>
+			<select name="reg[regBillCountry]">
+					<option value="0">{$lang.pleaseSelect}</option>
+				{foreach from=$countries key=key item=item}
+					<option value="{$item.id}"{if $smarty.post.reg.regBillCountry eq $item.id} selected="selected"{/if}>{$item.name}</option>
+				{/foreach}
+			</select>
+			</p>
+		</fieldset>
+		
+		
+		
+		{if $mode eq "update"}
+		<h3>{$lang.regDelAddress}</h3>
+		<p>{$lang.regDelNotice}</p>
+		<fieldset>
+			<p><label for="regDelFirstName">{$lang.regDelFirstName}</label>
+			<input type="text" class="text" name="reg[regDelFirstName]" id="regDelFirstName" value="{$smarty.post.reg.regDelFirstName}" /></p>
+			
+			<p><label for="regDelLastName">{$lang.regDelLastName}</label>
+			<input type="text" class="text" name="reg[regDelLastName]" id="regDelLastName" value="{$smarty.post.reg.regDelLastName}" /></p>
+
+			<p><label for="regDelCompany">{$lang.regDelCompany}</label>
+			<input type="text" class="text" name="reg[regDelCompany]" id="regDelCompany" value="{$smarty.post.reg.regDelCompany}" /></p>
+			
+			<p><label for="regDelStreet">{$lang.regDelStreet}</label>
+			<input type="text" class="text" name="reg[regDelStreet]" id="regDelStreet" value="{$smarty.post.reg.regDelStreet}" /></p>
+			
+			<p><label for="regDelTown">{$lang.regDelTown}</label>
+			<input type="text" class="text" name="reg[regDelTown]" id="regDelTown" value="{$smarty.post.reg.regDelTown}" /></p>
+			
+			<p><label for="regDelPostcode">{$lang.regDelPostcode}</label>
+			<input type="text" class="text" name="reg[regDelPostcode]" id="regDelPostcode" value="{$smarty.post.reg.regDelPostcode}" /></p>
+			
+			<p><label for="regDelCountry">{$lang.regDelCountry}</label>
+			<select name="reg[regDelCountry]">
+				<option value="0">{$lang.pleaseSelect}</option>
+				{foreach from=$countries key=key item=item}
+					<option value="{$item.id}"{if $smarty.post.reg.regDelCountry eq $item.id} selected="selected"{/if}>{$item.name}</option>
+				{/foreach}
+			</select>
+			</p>
+		</fieldset>
+		{/if}
+		
+		<input type="hidden" class="hidden" value="register" name="action" />
+		<input type="hidden" class="hidden" value="{$smarty.request.basket}" name="basket" />
+		<input type="hidden" class="hidden" value="{$usersettings}" name="settings" />
+		<input type="hidden" class="hidden" value="{$mode}" name="mode" />
+		<input type="hidden" class="hidden" value="{$lastpage}" name="lastpage" />
+		<p><input type="submit" class="button" value="{if $authed eq 0}{$lang.register}{else}{$lang.accountUpdate}{/if}" /></p>
+		
+	</form>
+	

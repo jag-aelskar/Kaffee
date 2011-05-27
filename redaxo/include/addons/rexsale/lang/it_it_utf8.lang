@@ -1,0 +1,213 @@
+# addon:rexshop it_it
+
+language = Inglese 
+products = Prodotti
+varianti = Variantei del prodotto 
+children = categorie per bambini
+categoria = Categoria
+users = User Admin
+
+
+proddesc=Descrizione del prodotto 
+
+
+productDetails=Dettagli del prodotto 
+pleaseSendMoney=Perfavore trasferite il totale dovuto sul seguente conto:   
+clickForBig=Cliccare per vedere l'immagine ingrandita. 
+korallenMessage=Attenzione: La spedizione dei coralli può essere effettuata solo utilizzando il nostro corriere espresso. Il pagamento dev'essere effettuato unicamente tramite Bonifico Bancario. Spediamo solo in Germania! 
+
+# Payments
+bankTransfer=Bonifico
+COD=Contrasegno
+
+
+# General
+image=Immagine
+price=Prezzo
+save=Salva
+general=Generale
+
+agreeToTOCsA=Sì, ho letto i
+agreeToTOCsB=Termini e le Condizioni 
+agreeToTOCsC= e le accetto. 
+noTOC=Perfavore leggete ed accettate i termini e le condizioni. 
+
+
+# navigation
+home = Homepage
+config = Configurazione
+categories = Categorie &amp; Prodotti
+customers = Clienti
+orders = Ordini
+categorySelector = Selezionare una categoria 
+
+showbasket=Il tuo carrello
+
+loggedInAs=Sei loggato come 
+
+# Category Selector
+category=Categoria
+priority=Priorità
+editieren=Edita categoria
+statusfunction=Stato/Funzioni
+home=RexSale
+directory=Cartelle
+languages=Linguaggi
+edit=Edita category
+del=Cancella categoria
+add=Inserisci categoria
+editdel=Edita o cancella categoria
+editProducts=Edita prodotti
+
+
+# Product Selector
+product=Prodotti
+editProduct=Edita prodotti
+editdelProduct=Edita o Cancella prodotti 
+
+
+# Error messages
+errorCatNotEmpty=Questa categoria non può essere cancellata perchè contiene ancora 
+prodotti o sotto-categorie. 
+
+# Product Editor
+peAdd=Inserire Prodotto
+peDel=Cancellare Prodotto
+peStandard=Generale
+peName=Nome
+peManufacturer=Produttore
+peMake=Marchio
+pePrice=Prezzo (EURO)
+peTax=Categoria di tassazione 
+peEAN=Numero EAN 
+peUPC=Numero UPC 
+peISBN=INumero SBN 
+peCategories=Categoriee
+peImages=Immagini
+peDescs=Descrizioni
+peVariants=Varianti
+peProductSaved= I tuoi cambiamenti sono stati salvati
+
+# Product Variants
+vaOptions=Opzioni
+vaValues=Valori
+
+vaNewOptionName=Digita un nuovo nome:
+vaNewValueName=Digita un nuovo nome:
+
+# Product Variant Frame
+vfOption=Opzioni
+vfValue=Valore
+vfPlusMinus=+/-
+vfPrice=Prezzo
+vfControls=Controlli
+vfMove=Muovi
+vfEdit=Edita
+vfSave=Salva
+
+
+# Frontend
+addToBasket=Aggiungi al carrello
+amount=Quantità
+noProductsHere=Questa categoria è vuota. Perfavore selezionate un'altra categoria. 
+youAreHere=Voi siete qui
+basket=Carrello
+total=Totale
+recalculate=Ricalcola 
+tothetill=Ordine
+choosePaymentMethod=Perfavore scegliete un metodo di pagamento:
+basketIsEmpty=il vostro carrello non contiene alcun prodotto. 
+continueShopping=Continua shopping
+
+sendTo=Inviare a:
+paymentMethods=Pagamento:
+pleaseSelect=perfavore selezionate: 
+internationalPostagePerMail=Attenzione:Vi invieremo via email il costo delle spese di trasporto al di fuori della Germania.  
+calculatedAfter=(Sarà calcolato dopo il completamento dell'<br/>Ordine)
+postage=Spese di trasporto
+plusPostage=<br />spese di trasporto escluse 
+
+taxInclusivePlusPackaging=I prezzi indicati sono compresi delle tasse vigenti  ma escluso il trasporto
+includedTax=Incluso Tasse 
+
+
+paymentMethod=Il pagamento sarà completato a mezzo:
+thanks=Grazie per il vostro ordine!
+youWillGetMail=Riceverete, a breve, una nostra conferma d'ordine. 
+
+ordernumber=Numero d'ordine 
+
+register=Registratevi
+registerSuccess=La registrazione ha avuto successo!
+
+regEmail=E-Mail
+regPhone=Telefono
+regPassword1=Password
+regPassword2=Ripeti Password
+
+regCouldntSignup=Si è verificato il seguente problema: 
+regPasswordsDontMatch=Perfavore, reinserite la password.
+regIncorrectEmail=Il vostro indirizzo  E-Mail non è corretto.
+regPasswordsEmpty=perfavore, digitate una password.
+regCheckRequiredFields=Perfavore compilate tutti i campi obbligatori. 
+regUserAlreadyExists=Siete già registrati. Perfavore loggatevi. 
+regSignupSuccessful=Grazie! Ora siete registrati!
+
+regBillAddress=Indirizzo di fatturazione
+regBillFirstName=Nome
+regBillLastName=Cognome
+regBillCompany=Azienda
+regBillStreet=Via
+regBillTown=Città
+regBillState=Stato/Provincia
+regBillPostcode=Codice Postale
+regBillCountry=Paese
+
+regDelNotice=(Compilate questi campi solo se diversi dall'indirizzo di fatturazione) 
+
+regDelAddress=Indirizzo di consegna
+regDelFirstName=Nome
+regDelLastName=Cognome
+regDelCompany=Azienda
+regDelStreet=Via
+regDelTown=Città
+regDelState=Stato/Provincia
+regDelPostcode=Codice postale
+regDelCountry=Paese
+
+login=login
+loginUser=Indirizzo E-Mail 
+loginPassword=Password
+loginUserDoesNotExist=Questo indirizzo  E-Mail non è registrato. 
+loginIncorrectUserOrPassword=Lo username o la password non sono coretti
+
+logout=Logout
+
+account=My Account
+accountUpdate=Save
+accountChangeInfo=Change contact information
+
+
+# Emails
+order=Ordine
+date=Data
+
+
+# Bank
+bankData=Informazioni bancarie
+bankAccountHolder=intestatario del conto
+bankAccountBank=Banca
+bankAccountNumber=numero di conto
+bankAccountSortCode=Sort Code
+
+
+# Paging
+nextProd = Prodotto successivo 
+lastProd = Produitto precedente 
+overviewLink = Visone d'insieme
+
+
+metaDataSaved = I metadati sono stati salvati.  
+catdesc= Descrizione della categoria 
+metainfo=Metadati
+

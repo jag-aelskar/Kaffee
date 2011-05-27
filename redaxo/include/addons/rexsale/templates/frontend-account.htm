@@ -1,0 +1,61 @@
+<div id="page-account">
+	{if $authed eq 0}
+	
+	<h2>{$lang.login}</h2>
+	<h3>{$lang.loginCustomer}</h3>
+	<form class="loginform" action="{$config.Security.BaseSSL}/{$url}account/index.html" method="post">
+	
+	{if $errors ne ""}
+		<div class="error">
+		<ul>
+		{foreach from=$errors key=key item=item}
+			<li>{$item}</li>
+		{/foreach}
+		</ul>
+		</div>
+	{/if}
+	
+	{if $smarty.get.order eq "yes"}
+		<div class="info">
+			<p>{$lang.pleaseLoginToContinue}</p>
+		</div>
+	{/if}
+	
+	
+	{if $message ne ""}
+		<p class="message">{$message}</p>
+	{/if}
+	
+	<fieldset>
+			<p><label for="loginUser">{$lang.loginUser}</label>
+			<input type="text" class="text" name="login[user]" id="loginUser" value="{$smarty.post.login.user}" /></p>
+			
+			<p><label for="loginPassword">{$lang.loginPassword}</label>
+			<input type="password" class="text" name="login[password]" id="loginPassword" value="{$smarty.post.login.password}" /></p>
+			
+			<input type="hidden" class="hidden" value="login" name="action" />
+			<input type="hidden" class="hidden" value="{$lastpage}" name="lastpage" />
+			<input type="hidden" class="hidden" value="{$smarty.request.basket}" name="basket" />
+			<input type="hidden" class="hidden" value="{$usersettings}" name="settings" />
+			<input type="hidden" class="hidden" value="login" name="action" />
+			<p><input type="submit" class="button" value="{$lang.login}" />	</p>		
+	</fieldset>
+	</form>
+	<h3>{$lang.loginNoCustomer}</h3>
+	<p>{$lang.loginNoCustomerText} <a class="button" href="{$config.Security.BaseNoSSL}/{$url}register/index.html&amp;basket={$session}">{$lang.register}</a></p>
+	
+	{else}
+	
+		<h2>{$lang.account}</h2>	
+		
+		<ul>
+			<li><a href="{$url}account/update/index.html">{$lang.accountChangeInfo}</a></li>
+			<li><a href="{$url}account/orders/index.html">{$lang.accountOrders}</a></li>
+			<li><a href="{$url}account/downloads/index.html">{$lang.accountDownloads}</a></li>
+		</ul>
+		
+		
+		
+	{/if}
+	
+</div>

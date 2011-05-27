@@ -1,0 +1,96 @@
+<form action="?page=rexsale&subpage=inventory" method="post">
+<table id="rexsale_table_cats" cellspacing="1" cellpadding="4" border="0" class="rex-table rex-table-mrgn">
+
+	<tr>
+		<th style="width:26px;text-align:center;"><a href="?page=rexsale&subpage=inventory&clang={$smarty.request.clang}&action=addCat&parent={$parent}"><img src="media/folder_plus.gif" /></a></th>
+		<th class="ajaxstatus">&nbsp;</th>
+		<th style="width:250px;">{$lang.category}</th>
+		<!--<th style="width:30px;">{$lang.priority}</th>-->
+		<th>{$lang.editieren}</th>
+		<th style="width:100px;">{$lang.statusfunction}</th>
+	</tr>
+	
+{if $errors ne ""}
+	<tr class="warning">
+		<td style="text-align:center;"><img src="media/warning.gif" alt="" /></td>
+		<td colspan="4">
+		{foreach from=$errors key=k item=v}
+			{$v}<br />
+		{/foreach}
+		</td>
+	</tr>
+{/if}
+
+
+{if $parent gt 0}
+	<tr>
+			<td style="text-align:center;">
+			</td>
+			<td>&nbsp;</td>
+			<td><a href="index.php?page=rexsale&subpage=inventory&parent={$array.id}&clang={$smarty.request.clang}">..</a></td>
+			<!--<td>&nbsp;</td>-->
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+	</tr>
+{/if}
+
+<tbody>	
+{foreach from=$cattree key=cat item=array}	
+	<tr>
+		<td style="text-align:center;">
+		<a href="index.php?page=rexsale&subpage=inventory&parent={$array.id}&clang={$smarty.request.clang}"><img src="media/folder.gif" alt=""></a>
+		</td>
+		<td class="rexsaleID" id="sort{$array.id}"><a href="#" class="sortlink"><img src="index.php?page=rexsale&load=move.gif"></a></td>		
+		{if $smarty.get.editCat eq $array.id}
+			<td><input style="width:240px;" type="text" name="catname" value="{$array.name}" /></td>
+			
+			<!--<td><input type="text" style="width:20px;" name="catsort" value="{$array.sortorder}" /></td>-->
+			<td>
+				<input type="hidden" name="id" value="{$smarty.request.editCat}" />
+				<input type="hidden" name="parent" value="{$smarty.request.parent}" />
+				<input type="hidden" name="clang" value="{$clang}" />
+				<input type="submit" name="editcat" value="{$lang.edit}" /><input type="submit" name="delcat" value="{$lang.del}" />
+			</td>
+			<td>&nbsp;</td>
+		{else}
+			<td><a href="index.php?page=rexsale&subpage=inventory&parent={$array.id}&clang={$smarty.request.clang}">{$array.name}</a></td>
+			<!--<td>{$array.sortorder}</td>-->
+			<td><a href="index.php?page=rexsale&subpage=inventory&parent={$smarty.request.parent}&clang={$smarty.request.clang}&editCat={$array.id}">{$lang.editdel}</a></td>
+			<td>
+			<a href="index.php?page=rexsale&subpage=inventory&parent={$parent}&clang={$smarty.request.clang}&toggleCat={$array.id}">
+			{if $array.status eq 1}
+			<span class="rex-online">online</span>
+			{else}
+			<span class="rex-offline">offline</span>
+			{/if}
+			</a>
+			</td>
+		{/if}
+		
+	</tr>
+{/foreach}
+</tbody>
+
+
+
+
+{if $smarty.get.action eq "addCat"}
+	<tr>
+			<td style="text-align:center;">
+			<a href="index.php?page=rexsale&subpage=inventory&parent={$array.id}&clang={$smarty.request.clang}"><img src="media/folder.gif" alt=""></a>
+			</td>
+			<td>&nbsp;</td>
+			<td><input type="text" name="catname" style="width:240px;" value="" /></td>
+			
+			<!--<td>{$array.sortorder}</td>-->
+			<td>
+				<input type="hidden" name="parent" value="{$smarty.get.parent}" />
+				<input type="submit" name="addcat" value="{$lang.add}" />
+			</td>
+			<td>&nbsp;</td>
+	</tr>
+{/if}
+
+
+</table>
+</form>

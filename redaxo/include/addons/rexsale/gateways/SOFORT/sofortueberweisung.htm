@@ -1,0 +1,47 @@
+﻿<html>
+<head>
+
+<style type="text/css">
+	{literal}
+	*
+	{	font-family:"Trebuchet MS",sans-serif;
+		text-align:center;
+	}
+	#container
+	{	border:1px solid #CCCCCC;
+		margin:50px auto;
+		padding:20px 20px;
+		width:400px;
+	}
+	a
+	{	color:#666666;
+		font-size:11px;
+	}
+	{/literal}
+</style>
+
+</head>
+
+<body>
+
+	<div id="container">
+	
+		<!-- sofortüberweisung.de --> 
+		
+		
+		<form method="post" action="https://www.sofortueberweisung.de/payment/start"> 
+		<input type="hidden" name="user_id" value="{$config.Gateway.userid}" />
+		<input type="hidden" name="project_id" value="{$config.Gateway.projectid}" />
+		<input type="hidden" name="reason_1" value="{$subject}" />
+		<input type="hidden" name="amount" value="{$total}" />
+		<input type="hidden" name="user_variable_4" value="{$user}" />
+		<input type="hidden" name="user_variable_5" value="{$downloads}" />
+		<input type="hidden" name="hash" value="{$hash}" />
+		
+		<input type="submit" value="Bezahlen" /> 
+		</form> 
+				
+	</div>
+	
+</body>
+</html>

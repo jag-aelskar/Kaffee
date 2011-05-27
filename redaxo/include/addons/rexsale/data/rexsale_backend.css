@@ -1,0 +1,18 @@
+.rex-table tr th
+{	border:none;
+}
+.rex-table tr
+{	border-collapse:collapse;
+	width:100%;
+}
+table.rex-table td
+{	border-width:0px 0pt 1px 1px;
+}
+
+
+tbody tr.ui-sortable-helper td
+{	background-color:#F0EFEB;
+}
+tbody tr td.rexsaleID
+{	width:16px;
+}

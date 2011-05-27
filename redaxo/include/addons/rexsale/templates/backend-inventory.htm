@@ -1,0 +1,18 @@
+{include file="backend-lang-select.htm"}
+
+{include file="backend-cat-tree.htm"}
+
+
+<div class="rex-addon-output">
+{* Include Categories *}
+{if $smarty.request.editProd eq ""}
+{include file="backend-cats.htm parent=$parent}
+{/if}
+
+{if $smarty.request.parent ne "" and $smarty.request.parent ne "0"}	
+	{if $smarty.request.editProd eq ""}
+	{include file="backend-metainfo.htm"}
+	{/if}
+	{include file="backend-products.htm"}
+{/if}
+</div>

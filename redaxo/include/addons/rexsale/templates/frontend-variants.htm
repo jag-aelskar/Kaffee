@@ -1,0 +1,13 @@
+{if $ajaxmode ne 1}<div id="variations{$info.id}" class="variations">{/if}
+{foreach from=$variations[$info.id] key=vk item=vi name=variations}
+				{if $vartree[$smarty.foreach.variations.index] ne "" or $smarty.foreach.variations.index eq 0}
+				<div id="variant{$vk}" class="level{$smarty.foreach.variations.index}">
+					<h3>{$vi.name}</h3>
+						{foreach from=$vi.data key=key item=data}
+							<p class="prodopt o{$vk} v{$data[1]}" id="p{$info.id}o{$vk}v{$data[1]}"><label><input class="radio" type="radio"{if $data[1]|in_array:$vartree} checked="checked"{/if} name="variations[{$vk}]" value="{$data[1]}"/>{$data[0]}</label> {if $data[4] ne "0.00"}({$data[3]}{$data[4]|replace:".":$config.Currency.Separator} {$config.Currency.Symbol} *){/if}</p>
+						{/foreach}
+	
+				</div>
+				{/if}
+{/foreach}
+{if $ajaxmode ne 1}</div>{/if}

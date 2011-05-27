@@ -1,0 +1,81 @@
+
+html, body {
+height: 100%;
+background-color: #f6deab;
+font-family: "Yanone Kaffeesatz";
+}
+
+#inhalt, #content_1, #content_2{
+height: 510px;
+}
+
+#container {
+height: 100%;
+}
+
+#bar{
+height: 25px;
+}
+
+#login, #reg, #warenkorb{
+height: 25px; 
+padding-top: 5px;
+text-align: right;
+}
+
+
+#inhalt {
+margin-top: 60px;
+background-color: #FF7F00;
+
+}
+
+#content_1{
+}
+
+#logo{
+margin-top: 25px;
+}
+
+#h1{
+height: auto;
+margin-top: 20px;
+text-align: right;
+font-size: 18pt;
+color: #FFEEC2;
+font-stretch: ultra-condensed;
+letter-spacing:0.1em;
+}
+
+#text{
+height: auto;
+margin-top: 15px;
+text-align: right;
+font-size: 13pt;
+line-height: 1.5;
+}
+
+#menu{
+height: 22px;
+margin-top: 45px;
+text-align: right;
+}
+
+#Roesterei, #Rubrikauswahl, #Kontakt{
+text-align: right;
+font-size: 13pt;
+}
+
+#content_2{
+}
+
+#img{
+height: 510px;
+}
+
+#footer{
+margin-top: 5px;
+text-align: center;
+font-size: small;
+font-stretch: wider;
+}

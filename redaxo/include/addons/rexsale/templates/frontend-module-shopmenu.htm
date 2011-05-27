@@ -1,0 +1,7 @@
+<div id="shopnav">
+		<ul>
+			{foreach from=$shopnav key=key item=item}
+				<li{if $shopmode eq $item[2] or $shopmode eq $item[3]} class="active"{/if}><a href="{$item[0]}">{$item[1]}</a></li>
+			{/foreach}
+		</ul>
+</div>

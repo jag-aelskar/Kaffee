@@ -1,0 +1,10 @@
+{$lang.ordernumber} : {$orderid}
+{$lang.date} :	{$date}
+
+
+{$lang.bankData}:
+---------------------------------------------
+{$lang.bankAccountHolder}	:	{$bank.accountHolder}
+{$lang.bankAccountBank}		:	{$bank.accountBank}
+{$lang.bankAccountNumber}	:	{$bank.accountNumber}
+{$lang.bankAccountSortCode}		:	{$bank.accountSortCode}

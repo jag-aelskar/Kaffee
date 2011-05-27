@@ -1,0 +1,23 @@
+{if $shopmode ne "b"}
+	{if $config.Layout.ShowMiniBasket eq 1}
+	{include file="frontend-minibasket.htm"}
+	{/if}
+	
+	{if $config.Layout.ShowSideMenu eq 1}
+	<div id="shopnav">
+	
+	
+		<ul>
+			{foreach from=$shopnav key=key item=item}
+				<li><a{if $shopmode eq $item[2]} class="active"{/if} href="{$item[0]}">{$item[1]}</a></li>
+			{/foreach}
+		</ul>
+	</div>
+	{/if}
+
+{/if}
+
+{*include file="frontend-breadcrumbs.htm"*}
+<div id="shopPage-{$shopmode}">
+{include file="$stage.htm"}
+</div>

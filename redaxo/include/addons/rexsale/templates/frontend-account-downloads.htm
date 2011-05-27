@@ -1,0 +1,29 @@
+<div id="page-account-download">
+	<h2>{$lang.accountDownloads}</h2>
+
+	{if count($downloads) gt 0}
+	<table>
+		<tr>
+			<th>{$lang.accountDownloadName}</th>
+			<th>{$lang.accountDownloadRemain}</th>
+			<th>&nbsp;</th>
+		</tr>
+	{foreach from=$downloads key=key item=item}
+		<tr>
+			<td>{$item.fNAME}</td>
+			<td>{$item.fCOUNT}</td>			
+			<td>
+				{if $item.fCOUNT gt 0} 
+					<a href="{$url}account/getdownload/index.html&amp;id={$item.rDOWNLOAD}">{$lang.accountDownloadThis}</a>
+					<br>
+					<a href="{$url}account/emaildownload/index.html&amp;id={$item.rDOWNLOAD}">{$lang.accountEMailThis}</a>
+				{else}
+					<span class="nodownload"><strike>{$lang.accountDownloadThis}</strike></span>
+					<span class="nodownload"><strike>{$lang.accountEMailThis}</strike></span>
+				{/if}
+			</td>	
+		</tr>
+	{/foreach}
+	</table>
+	{/if}
+</div>

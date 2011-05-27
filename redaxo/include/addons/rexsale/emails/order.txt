@@ -1,0 +1,92 @@
+-----------------------------------------------------------------------------------------------------
+{$config.General.ShopName} {$lang.order} von {$user.fBILL_FIRST_NAME} {$user.fBILL_LAST_NAME} ({$user.fEMAIL})
+-----------------------------------------------------------------------------------------------------
+{$lang.ordernumber}: {$orderid}
+
+{$lang.date}: {$date}
+
+
+{$lang.regBillAddress}:	
+--------------------------------------
+{$user.fBILL_FIRST_NAME} {$user.fBILL_LAST_NAME}
+{$user.fBILL_STREET}
+{$user.fBILL_TOWN} {$user.fBILL_POST} 
+{$user.fBILL_STATE}
+{$user.fBILL_COUNTRY}
+
+{if $user.fDEL_STREET ne ""}
+{$lang.regDelAddress}:	 
+--------------------------------------
+{$user.fDEL_FIRST_NAME} {$user.fDEL_LAST_NAME}
+{$user.fDEL_STREET}
+{$user.fDEL_TOWN} {$user.fDEL_POST} 
+{$user.fDEL_STATE}
+{$user.fDEL_COUNTRY}
+{/if}
+
+
+-----------------------------------------------------------------------------------------------------
+
+{section loop=$basket name=row}
+{$basket[row].amount} x {$basket[row].name}
+{$basket[row].price}
+{if $basket[row].variants ne ""} {section loop=$basket[row].variants name="variant"} {$basket[row].variants[variant]} 
+{/section}{/if}
+-----------------------------------------------------------------------------------------------------
+{section loop=$settings.scriptmessage name=message}
+{$settings.scriptmessage[message][0]}  {$settings.scriptmessage[message][1]}  {$settings.scriptmessage[message][2]}
+-----------------------------------------------------------------------------------------------------
+{/section}
+
+
+{/section}
+
+{if $paymentID eq 4}
+{$lang.postage}: {$lang.internationalPostagePerMail}
+
+{else}
+{if $freepostage ne 1}{$lang.postage}: {$basketpostage}{/if}
+{/if}								
+{$lang.includedTax}: {$baskettax}
+{$lang.total}: {$baskettotal}
+-----------------------------------------------------------------------------------------------------
+
+{$lang.paymentMethod}: {$payment}
+
+{* BANKEINZUG DEUTSCHLAND *}
+{if $paymentID eq 1}
+
+{/if}
+
+
+{* VORKASSE DEUTSCHLAND *}
+{if $paymentID eq 3}
+		
+{$lang.pleaseSendMoney}
+		
+
+Bank: xxxxxxx
+
+Konto: xxxxxxx
+IBAN Code: xxxxxxxx
+Swift Code: xxxxxxxxxx
+{/if}
+
+
+{* VORKASSE AUSLAND *}
+{if $paymentID eq 4}
+		
+{$lang.internationalPostagePerMail}
+		
+{$lang.pleaseSendMoney}
+		
+Bank: xxxxxxx
+
+Konto: xxxxxxx
+IBAN Code: xxxxxxxx
+Swift Code: xxxxxxxxxx
+
+{/if}
+-----------------------------------------------------------------------------------------------------
+
+{$lang.thanks}

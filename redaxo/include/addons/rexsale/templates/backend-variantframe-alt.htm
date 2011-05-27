@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="de">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="de" />
+  <link rel=stylesheet type=text/css href=css/style.css />
+  <style type="text/css">
+  	{literal}
+
+  	body{margin:0;padding:0;}
+  	select{width:100%;border:none;text-align:center;}
+  	option{text-align:center;}
+  	table.rex{width:100%;border-collapse:collapse;}
+  	input.text{width:100%;border:none;text-align:center;}
+  	input{margin:0;display:inline;border:none;}
+  	input.button{border:1px solid #666666;}
+  	table.rex th{text-align:center !important;padding:3px 0px;}
+  	table td{text-align:center;border:1px solid #CCCCCC;padding:0;}
+  	
+  	
+  	{/literal}
+  </style>
+<script type="text/javascript" src="index.php?page=rexsale&load=advajax.js"></script>
+<script type="text/javascript" src="index.php?page=rexsale&load=behaviour.js"></script>
+<script type="text/javascript" src="index.php?page=rexsale&load=init.js"></script>  
+</head>
+<body>
+
+	<form id="variantframe" action="index.php?page=rexsale&iframe=variantframe&clang={$smarty.get.clang}&product={$smarty.get.product}" method="post">
+	<table class="rex" style="width:100%;" cellpadding="0">
+		<tr>
+			<th style="width:20%">{$lang.vfOption}</th>
+			<th style="width:20%">{$lang.vfValue}</th>
+			<th style="width:10%">{$lang.vfPlusMinus}</th>
+			<th style="width:15%">{$lang.vfPrice}</th>
+			<th>{$lang.vfControls}</th>
+			<th style="width:18%">{$lang.vfMove}<input type="image" name="addVariant" src="pics/file_add.gif" value="addVariant" /></th>			
+		</tr>
+		
+		
+		
+		{foreach from=$variants key=k item=v}
+		<tr>
+		
+			{if $smarty.get.editVariant eq $k}
+			
+			<td><a name="variant{$k}"></a>
+				<select name="options" id="optionsbox">
+				{foreach from=$options key=ok item=ov}
+					<option value="{$ok}"{if $v.optionID eq $ok} selected="selected"{/if}>{$ov}</option>
+				{/foreach}
+				</select>
+			</td>
+			<td id="variants">
+				{foreach from=$options key=ok item=ov}
+				<select id="values{$ok}" name="values[{$ok}]" style="{if $v.optionID eq $ok}{else}display:none;{/if}">
+					{foreach from=$values[$ok] key=vk item=vv}
+						<option value="{$vk}"{if $v.optionID eq $ok and $v.wertID eq $vk} selected="selected"{/if}>{$vv}</option>
+					{/foreach}
+				</select>
+				{/foreach}
+				
+				
+			</td>
+			<td>
+				<select name="modifier">
+					<option value="+"{if $v.modifier eq "+"} selected="selected"{/if}>+</option>
+					<option value="-"{if $v.modifier eq "-"} selected="selected"{/if}>-</option>
+				</select>
+			</td>
+			<td>
+				<input class="text" type="text" name="price" value="{$v.price}" />
+			</td>
+			<td>
+				<input type="hidden" name="variantID" value="{$k}" />
+				<input class="button" type="submit" name="saveVariant" value="{$lang.vfSave}" />
+			</td>
+			<td>
+				<input type="image" src="pics/file_up.gif" />
+				<input type="image" src="pics/file_down.gif" />
+				<input type="image" src="pics/file_del.gif" name="del[{$k}]" />
+			</td>
+			
+			
+			
+			{else * View Mode *}
+			<td>{$v.option}</td>
+			<td>{$v.wert}</td>
+			<td>{$v.modifier}</td>
+			<td>{$v.price}</td>
+			<td><a href="index.php?page=rexsale&iframe=variantframe&clang={$smarty.get.clang}&product={$smarty.get.product}&editVariant={$k}#variant{$k}">{$lang.vfEdit}</a></td>
+						<td>
+				<input type="image" src="pics/file_up.gif" />
+				<input type="image" src="pics/file_down.gif" />
+				<input type="image" src="pics/file_del.gif" name="del[{$k}]" />
+			</td>
+			{/if}
+		
+		</tr>
+		{/foreach}
+
+	</table>
+	</form>
+</body>
+</html>

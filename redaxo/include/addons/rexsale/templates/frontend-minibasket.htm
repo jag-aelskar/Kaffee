@@ -1,0 +1,9 @@
+<div class="minibasket">
+	<h4>{$lang.basket}</h4>
+	{if $items ne 0}
+	<p>{$items} {if $items eq 1}{$lang.product}{else}{$lang.products}{/if}, <strong>{$baskettotalwithoutpostage|replace:".":$config.Currency.Separator}</strong></p>
+	{else}
+	<p>{$lang.basketIsEmpty}</p>
+	{/if}
+	<p><a href="{$url}basket/index.html&amp;basket={$session}">{$lang.showbasket}</a></p>
+</div>

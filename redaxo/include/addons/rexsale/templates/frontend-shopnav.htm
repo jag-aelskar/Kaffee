@@ -1,0 +1,14 @@
+{if $shopcatnav ne ""}
+<ul>
+{foreach from=$shopcatnav key=key item=item}
+	{if $item.metainfo.status eq 1}
+	<li{if $shopcatparents[$item.metainfo.id] eq 1 or $item.metainfo.id eq $activeShopCat} class="active"{/if}><a href="{$url}{$item.metainfo.url}">{$item.metainfo.name}</a>
+	
+	{if $item.metainfo.childrenOnline ne "" and $shopcatparents[$item.metainfo.id] eq 1}
+		{include file="frontend-shopnav.htm" shopcatnav=$item.children shopcatnavparents=$shopcatnavparents}
+	{/if}
+	</li>
+	{/if}
+{/foreach}
+</ul>
+{/if}

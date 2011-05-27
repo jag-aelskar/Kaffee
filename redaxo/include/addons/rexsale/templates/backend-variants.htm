@@ -1,0 +1,65 @@
+{include file="backend-lang-select.htm"}
+
+
+
+
+
+<div id="product-variants">
+<form action="?page=rexsale&subpage=variants" method="POST" id="variantform">
+<input type="hidden" id="mode" name="mode" value="" />
+<input type="hidden" id="modevalue" name="modevalue" value="" />
+<br />
+<table cellspacing="1" cellpadding="4" border="0" class="rex-table rex-table-mrgn">
+	<tr>
+		<th style="width:50%;">{$lang.vaOptions}</th>
+		<th>{$lang.vaValues}</th>
+	</tr>
+	<tr>
+		<td>
+			<table style="width:250px">
+				<tr>
+					<td>
+						<select id="varoptions" name="options" size="10" style="width:250px;">
+							
+							{foreach from=$options key=k item=v}
+							<option value="{$k}"{if $smarty.post.addValue[$k] ne "" or $smarty.post.options eq $k} selected="selected"{/if}>{$v}</option>
+							{/foreach}
+							
+						</select>					
+					</td>
+					<td class=inpicon>
+						<input type="hidden" name="clang" value="{$smarty.request.clang}" />
+						<input type="image" name="addOption" src="media/file_add.gif" />
+						<input type="image" name="delOption" src="media/file_del.gif" />
+						<a href="javascript:newOptionName('{$lang.vaNewOptionName}');"><img src="media/file_open.gif" /></a>
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td id="valuescol">
+			{foreach from=$options key=ok item=ov}
+				<table id="values{$ok}" style="width:250px;height:100%;{if $smarty.post.addValue[$ok] eq '' and $smarty.post.options ne $ok}display:none;{/if}">
+				<tr>
+					<td>
+						<select style="width:250px" name="values[{$ok}]" size="10" id="svalues{$ok}">
+								{foreach from=$values[$ok] key=kk item=vv}
+								<option value="{$kk}">{$vv}</option>
+								{/foreach}
+						</select>
+					</td>
+					<td class=inpicon>
+						<input type="image" name="addValue[{$ok}]" src="media/file_add.gif" />
+						<input type="image" name="delValue[{$ok}]" src="media/file_del.gif" />
+						<a href="javascript:;"><img src="media/file_open.gif" onclick="newValueName('{$lang.vaNewValueName}','{$ok}');" /></a>						
+					</td>
+				</tr>
+				</table>
+			{/foreach}
+		</td>
+	</tr>
+</table>
+
+
+
+</form>
+</div>

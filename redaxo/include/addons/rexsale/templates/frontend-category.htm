@@ -1,0 +1,49 @@
+<div id="page-category">
+<div id="bread">{include file="frontend-breadcrumbs.htm"}</div>
+
+{$catpager}
+
+<h2>{$category.name}</h2>
+
+{*if $category.metabild ne ""}
+<p class="metabild">
+<img src="index.php?rex_resize=200w__{$category.metabild}" alt="{$category.name}" />
+</p>
+{/if*}
+
+{if $category.metatext ne ""}
+<div class="metatext">
+{$category.metatexthtml}
+</div>
+{/if}
+
+	{if $products ne ""}
+		{foreach from=$products key=k item=v}
+			{if $v.url ne ""}
+			{if $v.status eq 1}
+			<div class="product">
+					<h3><a href="{$url}{$v.url}">{$v.name}</a></h3>
+					
+					{if $v.desc[2] ne ""}
+					<p class="shortdesc">{$v.desc[2]}</p>
+					{/if}
+					
+					{if $v.images[1] eq ""}
+						<p class="img"><img src="index.php?rex_resize=112h__kein-bild.jpg" alt="" /></p>
+					{/if}
+					{if $v.images[1] ne ""}
+						<p class="img"><a href="{$url}{$v.url}"><img src="index.php?rex_resize=112a__{$v.images[1]}" alt="{$v.name}" /></a></p>
+					{/if}
+					<h4>{$lang.price}</h4>
+					<p>{$v.priceGrossFormatted|replace:".":$config.Currency.Separator} *</p>					
+			</div>
+			{/if}
+			{/if}
+		{/foreach}
+	{else}
+		{if $category.metatext eq "" and $category.metabild eq ""}
+		<p class="catEmpty">{$lang.noProductsHere}</p>
+		{/if}
+	{/if}
+<p class="priceinfo">* {$lang.taxInclusivePlusPackaging}</p>
+</div>

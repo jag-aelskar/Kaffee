@@ -1,0 +1,19 @@
+
+{if $categorymap ne ""}
+	{foreach from=$categorymap key=key item=item}
+	<option>{$tab}{$item.metainfo.name}</option>
+	
+	{if $prodmap[$item.metainfo.id] ne ""}
+		{foreach from=$prodmap[$item.metainfo.id] key=pkey item=pitem}
+			<option style="color:#666666;" value="{$pitem.id}"{if $pitem.id|in_array:$product.related} selected="selected"{/if}>{$tab}&nbsp;&nbsp;{$pitem.name}</option>
+		{/foreach}
+	{/if}
+	
+	
+	{if $item.children ne ""}
+		{capture assign=tab2}{$tab}&nbsp;&nbsp;&nbsp;&nbsp;{/capture}
+		{include file="backend-productmap.htm" categorymap=$item.children tab=$tab2}
+	{/if}
+	
+	{/foreach}
+{/if}

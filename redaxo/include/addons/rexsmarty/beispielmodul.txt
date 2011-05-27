@@ -1,0 +1,53 @@
+EINGABE::
+-------------------------------------------------------------------------------------------
+<h3>&Uuml;berschrift</h3>
+
+<input name="VALUE[1]" type="text" value="REX_VALUE[1]" />
+<br />
+-------------------------------------------------------------------------------------------
+
+
+AUSGABE::
+-------------------------------------------------------------------------------------------
+<?php
+# Set up a new template
+$module=new Smart;
+$module->debugging=false;
+
+# Make some example data
+$data=array(0 => 'A',1 => 'B', 2 => 'C');
+
+if (count($data)>0)
+{	$module->assign('data',$data);
+}
+$module->assign('title',"REX_VALUE[1]");
+
+
+
+# Set the template to some HTML
+$module->smarttemplate='
+<!-- MODULE: Example -->
+<h1>{$title}</h1>
+
+
+<h2>A test table</h2>
+{if $data ne ""}
+<table>
+	{foreach from=$data key=key item=item}
+		<tr>
+			<th>{$key}</th>
+			<td>{$item}</td>
+		</tr>
+	{/foreach}
+</table>
+<!-- /MODULE: Example -->
+{/if}
+';
+
+
+# Display the template
+$module->registerTemplate('template.htm',$module->smarttemplate);
+$module->display('rex:template.htm');
+unset($module);
+?>
+-------------------------------------------------------------------------------------------

@@ -1,0 +1,7 @@
+{foreach from=$cats key=k item=category}
+	<div class="category">
+		<strong>{$lang.category}:</strong> {$category.name}<br />
+		<strong>{$lang.children}:</strong> {$category.children}<br />
+		<strong>{$lang.products}:</strong> {$category.products}
+	</div>
+{/foreach}
