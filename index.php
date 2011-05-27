@@ -1,5 +1,4 @@
 <?php
-g
 /**
  *
  * @package redaxo4

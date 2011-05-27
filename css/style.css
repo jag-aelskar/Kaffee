@@ -3,6 +3,7 @@ html, body {
 height: 100%;
 background-color: #f6deab;
 font-family: "Yanone Kaffeesatz";
+font-weight: 100;
 }
 
 #inhalt, #content_1, #content_2{
