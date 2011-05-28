@@ -1,5 +1,5 @@
 <?php
-/**Hallo
+/**
  *
  * @package redaxo4
  * @version svn:$Id$
