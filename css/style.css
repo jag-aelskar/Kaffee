@@ -73,6 +73,20 @@ font-size: 13pt;
 height: 510px;
 }
 
+#note{
+height: 120px;
+z-index: 2;
+margin-top: -540px;
+left: 260px;
+background-image: url(../img/note.png);
+background-repeat: no-repeat;
+color: white;
+padding-top: 20px;
+text-align: center;
+line-height:100%;
+font-size: 18pt;
+}
+
 #footer{
 margin-top: 5px;
 text-align: center;
