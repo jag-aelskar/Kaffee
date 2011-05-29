@@ -55,6 +55,20 @@ font-weight: 100;
 
 p{
 margin-top: 15px;
+font-size: 13pt;
+line-height: 1.5;
+}
+
+#content_1 p {
+text-align: right;
+}
+
+#content_2 p {
+text-align: left;
+}
+
+
+table {
 text-align: right;
 font-size: 13pt;
 line-height: 1.5;
@@ -97,4 +111,15 @@ margin-top: 5px;
 text-align: center;
 font-size: small;
 font-stretch: wider;
+}
+
+input {
+background: none;
+border: 1px solid #000;
+}
+
+label {
+display: block;
+width: 100px;
+float: left;
 }
