@@ -13,6 +13,7 @@
 
        <script src="css/jquery-1.6.1.min.js"></script>
        <script src="css/javascript.js"></script>
+       <script type="text/javascript" src="css/simpleCart.js"></script>
        
 </head>
 <body>
@@ -23,7 +24,7 @@
 			<ul>
 				<li id="login" class="grid_2">login</li>
 				<li id="reg" class="grid_2 alpha">registrieren</li>
-				<li id="warenkorb" class="grid_2 alpha omega">Kaffesack (0)</li>
+				<li id="warenkorb" class="grid_2 alpha omega"><a href="./kaffeesack copy.html">Kaffesack (<span class="simpleCart_quantity"></span>)</a></li>
 			</ul>
 			<div id="mini_login">
 				<input type="text" value="Login">
@@ -60,11 +61,12 @@ seinen würzigen Kakaonoten.</p>
 				
 				
 				</div>
-				<div style="background:rgba(255,238,194,0.8); margin: 20px; margin-top: 20px;padding: 5px; text-align:left;"><p style="margin-top:0px;width:100px;float:left;">Bestellen</p><p style="text-align:right;margin-top:0px;font-weight:bold;">17,20 €</p><p><label for="anzahl">Anzahl:</label><input name="anzahl" type="text" value="1"><br/>
+				<div class="simpleCart_shelfItem" style="background:rgba(255,238,194,0.8); margin: 20px; margin-top: 20px;padding: 5px; text-align:left;"><h3 class="item_name">Indonesien Java Blawan</h3><p style="margin-top:0px;width:100px;float:left;">Bestellen</p><p class="item_price" style="text-align:right;margin-top:0px;font-weight:bold;">17,20 €</p>
+				<label for="anzahl">Anzahl:</label><input name="anzahl" type="text" class="item_quantity" value="1"><br/>
 				
-				<label for="verpackung">Verpackung:</label><input name="verpackung" type="text" value="250g"><br/>
-				<label for="mahlgrad">Mahlgrad:</label><input name="mahlgrad" type="text" value="Siebträger"><br/>
-				<input name="senden" type="submit" value="in meinen Kaffeesack" style="margin-left:100px;">
+				<label for="anzahl">Verpackung:</label><input name="anzahl" type="text" value="250g"><br/>
+				<label for="anzahl">Mahlgrad:</label><input name="anzahl" type="text" value="Siebträger"><br/>
+				<a href="javascript:;" class="item_add">In meinen Kaffesack</a>
 				</p>
 				
 				

@@ -13,7 +13,14 @@
 
        <script src="css/jquery-1.6.1.min.js"></script>
        <script src="css/javascript.js"></script>
+       <script type="text/javascript" src="css/simpleCart.js"></script>
        
+       
+       <script type="text/javascript">
+       simpleCart.currency = EUR;
+       simpleCart.taxRate = 0.07;
+       simpleCart.shippingFlatRate = 3.90;
+       </script>
 </head>
 <body>
 
@@ -23,7 +30,7 @@
 			<ul>
 				<li id="login" class="grid_2">login</li>
 				<li id="reg" class="grid_2 alpha">registrieren</li>
-				<li id="warenkorb" class="grid_2 alpha omega">Kaffesack (0)</li>
+				<li id="warenkorb" class="grid_2 alpha omega"><a href="./kaffeesack copy.html">Kaffesack (<span class="simpleCart_quantity"></span>)</a></li>
 			</ul>
 			<div id="mini_login">
 				<input type="text" value="Login">
@@ -40,35 +47,23 @@
 					<li id="Rubrikauswahl" class="grid_2">Kaffee & Espresso</li>
 					<li id="Kontakt" class="grid_1 omega">Kontakt</li>
 				</ul>
-				<h1>Indonesien Java Blawan</h1>
-					<p>DIe Arabica-Pflanze gelangte um das Jahr 1696 nach Indonesien und wird dort seither als Nutzpflanze kultiviert. Der ausgesprochen säurearme und hocharomatische Kaffee wächst 
-in Höhenlagen von ca. 1.300 - 1.800 m ü.M. 
-an Vulkanhängen. Er gefällt mit seinem harmonischen, weichen Abgang und
-seinen würzigen Kakaonoten.</p>
-				<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Asia98.svg/200px-Asia98.svg.png"/>
+				<h1>Kaffeesack</h1>
+				<div style="text-align: right" class="simpleCart_items"></div>
+				<a href="javascript:;" class="simpleCart_empty">Alles Löschen</a>
 				
- 
+				
 			</div>
 			<div id="content_2" class="grid_7 omega" style="background: url('img/haende-filtered.jpg')">
-				<div style="background:rgba(255,238,194,0.8); margin: 20px; margin-top: 120px;padding: 5px; text-align:left;"><p style="margin-top:0px;">Ausgeprägte Fruchtnoten von Äthiopischen und Nicaraguanischen Kaffees machen diesen Espresso zum Klassiker. Besonders harmonisch mit aufgeschäumter Milch.<br /></p><br />
+				<div style="background:rgba(255,238,194,0.8); margin: 20px; margin-top: 120px;padding: 5px; text-align:left;"><p style="margin-top:0px;">Bestellinfos<br /></p><br />
 				<table>
-					<tr><td width="100">Körper:</td><td>medium</td></tr>
-					<tr><td>Säure:</td><td>ausgeprägt</td></tr>
-					<tr><td>Aromen: </td><td>Mandel, Orange, Röstaromen</td></tr>
+					<tr><td>Anzahl:</td><td><span class="simpleCart_quantity"></span></td></tr>
+					<tr><td>Steuern:</td><td><span class="simpleCart_taxCost"></span></td></tr>
+					<tr style="font-weight: bolder"><td>Gesamt: </td><td><span class="simpleCart_finalTotal"></span></td></tr>
 					
 				</table>
-				
-				
+					<a href="javascript:;" class="simpleCart_checkout">Bezahlen</a>
 				</div>
-				<div style="background:rgba(255,238,194,0.8); margin: 20px; margin-top: 20px;padding: 5px; text-align:left;"><p style="margin-top:0px;width:100px;float:left;">Bestellen</p><p style="text-align:right;margin-top:0px;font-weight:bold;">17,20 €</p><p><label for="anzahl">Anzahl:</label><input name="anzahl" type="text" value="1"><br/>
-				
-				<label for="verpackung">Verpackung:</label><input name="verpackung" type="text" value="250g"><br/>
-				<label for="mahlgrad">Mahlgrad:</label><input name="mahlgrad" type="text" value="Siebträger"><br/>
-				<input name="senden" type="submit" value="in meinen Kaffeesack" style="margin-left:100px;">
-				</p>
-				
-				
-				</div>
+			
 			</div>
 		</div>
 		<div id="footer" class="grid_8 push_4">Copyright © 2011 by Jag Älskar | Kontakt | Impressum | Datenschutz</div>
